@@ -46,6 +46,23 @@ test('unknown product answers 404', async (t) => {
   assert.equal(res.status, 404);
 });
 
+test('faq page is served with all four topics, no scripts, no images', async (t) => {
+  const srv = await listen(createApp());
+  t.after(() => srv.close());
+
+  const res = await fetch(`${base(srv)}/faq.html`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  for (const topic of ['shipping', 'returns', 'opening hours', 'food advice']) {
+    assert.match(html, new RegExp(topic), `faq covers ${topic}`);
+  }
+  assert.doesNotMatch(html, /<script/, 'faq stays JS-free');
+  assert.doesNotMatch(html, /<img/, 'faq stays image-free');
+
+  const home = await (await fetch(`${base(srv)}/`)).text();
+  assert.match(home, /href="\/faq\.html"/, 'store nav links to the faq');
+});
+
 test('editing the catalog file is visible on the next request, no restart', async (t) => {
   const dir = mkdtempSync(path.join(tmpdir(), 'petshop-'));
   const tmpCatalog = path.join(dir, 'catalog.json');

@@ -37,6 +37,7 @@ server.js             Express server: static files + fresh-read catalog API
 catalog.json          THE file — store identity + six products
 public/index.html     storefront (hero, grid, about, contact)
 public/product.html   product detail shell (rendered client-side)
+public/faq.html       FAQ — four questions, one static page, inline CSS, no JS, no images
 public/styles.css     warm pet-shop look: cream, clay, pine, sun
 public/app.js         renders the grid from /api/catalog
 public/product.js     renders one product; buy = prefilled order email
