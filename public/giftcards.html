@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gift cards — petshop-live</title>
+  <meta name="description" content="petshop-live gift cards: Pounce €25, Fetch €50 and Best Friend €100 — printed on card stock, ready at the counter, they never expire.">
+  <meta name="theme-color" content="#FBF5EC">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <style>
+    /* Self-contained on purpose: like the FAQ and testimonials, this page carries its own copy of the store palette. */
+    :root {
+      --cream: #FBF5EC; --card: #FFFFFF; --ink: #33261D; --ink-soft: #6B5A4E;
+      --clay: #C2553A; --pine: #3F7A64; --pine-soft: #E4EFE9; --sun: #F2B84B;
+      --line: #E8DCC9; --radius: 18px; --shadow: 0 10px 30px rgba(51, 38, 29, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px; line-height: 1.55;
+    }
+    a { color: var(--pine); }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; border-radius: 6px; }
+    .site-head {
+      position: sticky; top: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px clamp(20px, 5vw, 56px);
+      background: rgba(251, 245, 236, 0.9); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .brand-name .dot { color: var(--clay); }
+    .site-nav { display: flex; flex-wrap: wrap; gap: clamp(14px, 3vw, 28px); }
+    .site-nav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+    .site-nav a:hover { color: var(--clay); }
+    .site-nav a[aria-current] { color: var(--ink); }
+    main { max-width: 720px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 56px) clamp(24px, 4vw, 56px); }
+    .kicker { color: var(--clay); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; margin: 0 0 10px; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 0.3em; }
+    .lead { color: var(--ink-soft); max-width: 52ch; margin: 0 0 34px; }
+    .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; }
+    .tier-card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px;
+      border-top: 6px solid transparent; background-clip: padding-box; position: relative; overflow: hidden;
+    }
+    .tier-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--band); }
+    .tier-pounce { --band: linear-gradient(90deg, var(--sun), var(--clay)); }
+    .tier-fetch { --band: linear-gradient(90deg, var(--clay), var(--pine)); }
+    .tier-bestfriend { --band: linear-gradient(90deg, var(--pine), var(--sun)); }
+    .tier-label {
+      align-self: flex-start; background: var(--pine-soft); color: var(--pine);
+      font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .tier-card h2 { margin: 0; font-size: 1.3rem; letter-spacing: -0.01em; }
+    .price { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+    .tier-card p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+    .how { margin-top: auto; padding-top: 8px; border-top: 1px dashed var(--line); font-size: 0.9rem; }
+    .fine-print { color: var(--ink-soft); font-size: 0.9rem; margin: 26px 0 0; }
+    .site-foot { border-top: 1px solid var(--line); margin-top: clamp(28px, 5vw, 56px); padding: 34px clamp(20px, 5vw, 56px) 44px; text-align: center; color: var(--ink-soft); }
+    .foot-brand { font-weight: 800; color: var(--ink); font-size: 1.1rem; margin-bottom: 8px; }
+    .site-foot p { margin: 4px 0; }
+    @media (max-width: 640px) { .site-nav { gap: 14px; font-size: 0.95rem; } body { font-size: 16px; } }
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand-name" href="/">petshop<span class="dot">·</span>live</a>
+    <nav class="site-nav">
+      <a href="/#shop">shop</a>
+      <a href="/#about">about</a>
+      <a href="/faq.html">faq</a>
+      <a href="/testimonials.html">testimonials</a>
+      <a href="/giftcards.html" aria-current="page">gift cards</a>
+      <a href="mailto:orders@petshop.live">contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="kicker">gift cards</p>
+    <h1>give the good stuff.</h1>
+    <p class="lead">three cards, printed on proper card stock, for the pet person in your life. you pick the amount; their pet picks everything else.</p>
+
+    <div class="tiers">
+      <section class="tier-card tier-pounce">
+        <span class="tier-label">starter</span>
+        <h2>Pounce</h2>
+        <p class="price">€25</p>
+        <p>a toy and a treat, or one very good bag of the small stuff. the classic thank-you card for cat sitters and dog walkers.</p>
+        <p class="how">how to get one: email <a href="mailto:orders@petshop.live">orders@petshop.live</a> and we'll have it ready at the counter.</p>
+      </section>
+
+      <section class="tier-card tier-fetch">
+        <span class="tier-label">most given</span>
+        <h2>Fetch</h2>
+        <p class="price">€50</p>
+        <p>covers a food refill with room left for a toy — or one of the beagle-proof rope tugs the reviews keep mentioning.</p>
+        <p class="how">how to get one: email <a href="mailto:orders@petshop.live">orders@petshop.live</a> and we'll have it ready at the counter.</p>
+      </section>
+
+      <section class="tier-card tier-bestfriend">
+        <span class="tier-label">the big one</span>
+        <h2>Best Friend</h2>
+        <p class="price">€100</p>
+        <p>a new-pet starter kit, a month of the good food, or one glorious spree. comes with our food-advice email thrown in for free.</p>
+        <p class="how">how to get one: email <a href="mailto:orders@petshop.live">orders@petshop.live</a> and we'll have it ready at the counter.</p>
+      </section>
+    </div>
+
+    <p class="fine-print">cards never expire, work on anything in the shop, and survive being chewed slightly better than the receipts do. pickup tue–sat 9:00–18:00.</p>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">petshop·live</div>
+    <p>orders &amp; questions: <a href="mailto:orders@petshop.live">orders@petshop.live</a></p>
+    <p>havenstraat 12, amsterdam · tue–sat 9:00–18:00</p>
+  </footer>
+</body>
+</html>

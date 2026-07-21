@@ -82,6 +82,28 @@ test('testimonials page is served with three quotes, no scripts, no images', asy
   assert.match(faq, /href="\/testimonials\.html"/, 'faq nav links to the testimonials page');
 });
 
+test('gift cards page is served with three tiers, no scripts, no images', async (t) => {
+  const srv = await listen(createApp());
+  t.after(() => srv.close());
+
+  const res = await fetch(`${base(srv)}/giftcards.html`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.equal((html.match(/class="tier-card/g) ?? []).length, 3, 'exactly three tier cards');
+  for (const [name, price] of [['Pounce', '€25'], ['Fetch', '€50'], ['Best Friend', '€100']]) {
+    assert.match(html, new RegExp(name), `offers the ${name} card`);
+    assert.match(html, new RegExp(price), `${name} shows ${price}`);
+  }
+  assert.doesNotMatch(html, /<script/, 'gift cards stay JS-free');
+  assert.doesNotMatch(html, /<img/, 'gift cards stay image-free');
+  assert.match(html, /orders@petshop\.live/, 'how-to-get-one line points at the contact address');
+
+  for (const page of ['/', '/faq.html', '/testimonials.html']) {
+    const nav = await (await fetch(`${base(srv)}${page}`)).text();
+    assert.match(nav, /href="\/giftcards\.html"/, `${page} nav links to the gift cards page`);
+  }
+});
+
 test('editing the catalog file is visible on the next request, no restart', async (t) => {
   const dir = mkdtempSync(path.join(tmpdir(), 'petshop-'));
   const tmpCatalog = path.join(dir, 'catalog.json');
