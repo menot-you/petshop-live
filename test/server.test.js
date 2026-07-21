@@ -63,6 +63,25 @@ test('faq page is served with all four topics, no scripts, no images', async (t)
   assert.match(home, /href="\/faq\.html"/, 'store nav links to the faq');
 });
 
+test('testimonials page is served with three quotes, no scripts, no images', async (t) => {
+  const srv = await listen(createApp());
+  t.after(() => srv.close());
+
+  const res = await fetch(`${base(srv)}/testimonials.html`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.equal((html.match(/<blockquote>/g) ?? []).length, 3, 'exactly three quotes');
+  assert.equal((html.match(/<figcaption>/g) ?? []).length, 3, 'every quote carries a name');
+  assert.doesNotMatch(html, /<script/, 'testimonials stay JS-free');
+  assert.doesNotMatch(html, /<img/, 'testimonials stay image-free');
+
+  const home = await (await fetch(`${base(srv)}/`)).text();
+  assert.match(home, /href="\/testimonials\.html"/, 'store nav links to the testimonials page');
+
+  const faq = await (await fetch(`${base(srv)}/faq.html`)).text();
+  assert.match(faq, /href="\/testimonials\.html"/, 'faq nav links to the testimonials page');
+});
+
 test('editing the catalog file is visible on the next request, no restart', async (t) => {
   const dir = mkdtempSync(path.join(tmpdir(), 'petshop-'));
   const tmpCatalog = path.join(dir, 'catalog.json');
