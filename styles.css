@@ -1,0 +1,199 @@
+/* Bramble & Paw — warm, neighborly, slightly bookish. */
+
+:root {
+  --cream: #faf4e9;
+  --surface: #fffdf8;
+  --sand: #f4e8d2;
+  --ink: #33271a;
+  --ink-soft: #7a6a55;
+  --terracotta: #c05f33;
+  --terracotta-deep: #a84f28;
+  --sage: #7c8b6b;
+  --honey: #e2a54e;
+  --line: #e8dcc6;
+  --radius: 16px;
+  --shadow: 0 1px 2px rgba(51, 39, 26, 0.06), 0 8px 24px rgba(51, 39, 26, 0.08);
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+a { color: var(--terracotta); }
+a:focus-visible, .card:focus-visible, .buy:focus-visible {
+  outline: 3px solid var(--honey);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Header */
+.site-header {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1040px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: inherit;
+}
+.brand-mark { width: 48px; height: 48px; flex: none; }
+.brand-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  letter-spacing: 0.01em;
+}
+.brand-tagline {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* Layout */
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+.loading { color: var(--ink-soft); font-style: italic; }
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.9rem;
+  margin: 0 0 6px;
+}
+.shopfront-intro { color: var(--ink-soft); margin: 0 0 28px; }
+
+/* Catalog grid */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 22px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.card-art {
+  display: block;
+  background: var(--sand);
+  padding: 18px;
+}
+.card-art img { display: block; width: 100%; height: auto; }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px 18px;
+  flex: 1;
+}
+.card-species {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--sage);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+.card-name {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  margin-top: 6px;
+}
+.card-tagline { color: var(--ink-soft); font-size: 0.9rem; flex: 1; }
+.card-price { margin-top: 10px; font-weight: 650; color: var(--terracotta-deep); }
+
+/* Product detail */
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.back:hover { text-decoration: underline; }
+.product-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 420px) 1fr;
+  gap: 36px;
+  align-items: start;
+}
+.product-art {
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px;
+}
+.product-art img { display: block; width: 100%; height: auto; }
+.product-info h1 { margin: 8px 0 4px; font-size: 2.1rem; }
+.product-tagline { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 14px; }
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: var(--terracotta-deep);
+  margin: 0 0 16px;
+}
+.product-description { max-width: 56ch; margin: 0 0 26px; }
+.buy {
+  display: inline-block;
+  background: var(--terracotta);
+  color: var(--surface);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 999px;
+  transition: background 140ms ease, transform 140ms ease;
+}
+.buy:hover { background: var(--terracotta-deep); transform: translateY(-1px); }
+.buy-note { color: var(--ink-soft); font-size: 0.85rem; max-width: 46ch; margin-top: 12px; }
+
+/* Missing / error */
+.missing code {
+  background: var(--sand);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  padding: 22px 24px 30px;
+}
+.site-footer p { max-width: 1040px; margin: 6px auto; }
+.noscript { max-width: 1040px; margin: 20px auto; padding: 0 24px; }
+
+@media (max-width: 720px) {
+  .product-layout { grid-template-columns: 1fr; gap: 24px; }
+  .product-info h1 { font-size: 1.7rem; }
+  .brand-tagline { display: none; }
+}

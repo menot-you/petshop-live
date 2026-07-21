@@ -1,0 +1,12 @@
+[Unit]
+Description=petshop-live static demo storefront (tailnet-only)
+After=network-online.target tailscaled.service
+
+[Service]
+WorkingDirectory=/var/tmp/nott/slack-work/petshop-live
+ExecStart=/usr/bin/node /var/tmp/nott/slack-work/petshop-live/server.mjs --host 100.65.70.81 --port 4174
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
