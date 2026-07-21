@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>petshop-live</title>
+  <meta name="theme-color" content="#FBF5EC">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="/">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="16" fill="#C2553A"/>
+        <ellipse cx="32" cy="41" rx="13" ry="10" fill="#FBF5EC"/>
+        <circle cx="18" cy="28" r="5.5" fill="#FBF5EC"/>
+        <circle cx="28" cy="21" r="5.5" fill="#FBF5EC"/>
+        <circle cx="36" cy="21" r="5.5" fill="#FBF5EC"/>
+        <circle cx="46" cy="28" r="5.5" fill="#FBF5EC"/>
+      </svg>
+      <span class="brand-name">petshop<span class="brand-dot">·</span>live</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/#shop">shop</a>
+      <a href="/#about">about</a>
+      <a href="mailto:orders@petshop.live" data-contact>contact</a>
+    </nav>
+  </header>
+
+  <main class="product-main">
+    <a class="back" href="/#shop">← back to the shop</a>
+    <div id="product" class="product-wrap">
+      <p class="loading">fetching…</p>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">petshop·live</div>
+    <p>orders &amp; questions: <a href="mailto:orders@petshop.live" data-contact>orders@petshop.live</a></p>
+    <p data-store-address>havenstraat 12, amsterdam · tue–sat 9:00–18:00</p>
+    <p class="foot-note">demo storefront — orders by email, no online payments.</p>
+  </footer>
+
+  <script src="/product.js"></script>
+</body>
+</html>

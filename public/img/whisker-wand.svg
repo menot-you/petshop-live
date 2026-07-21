@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <ellipse cx="320" cy="424" rx="190" ry="20" fill="#33261D" opacity="0.07"/>
+  <!-- rod -->
+  <line x1="150" y1="404" x2="418" y2="170" stroke="#8A6A4F" stroke-width="15" stroke-linecap="round"/>
+  <!-- grip wraps -->
+  <g stroke="#C2553A" stroke-width="15" stroke-linecap="round">
+    <line x1="163" y1="392" x2="182" y2="376"/>
+    <line x1="192" y1="367" x2="211" y2="351"/>
+  </g>
+  <!-- cord -->
+  <path d="M418 170 C 470 140, 512 168, 496 232" stroke="#33261D" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- bell -->
+  <circle cx="496" cy="248" r="13" fill="#F2B84B"/>
+  <line x1="489" y1="252" x2="503" y2="252" stroke="#8A5A2B" stroke-width="3"/>
+  <!-- feathers -->
+  <g>
+    <path d="M496 262 C 462 306, 452 348, 466 384 C 486 360, 498 316, 502 268 Z" fill="#C2553A"/>
+    <path d="M498 264 C 506 316, 520 352, 548 376 C 552 340, 534 296, 506 262 Z" fill="#3F7A64"/>
+    <path d="M494 262 C 476 300, 470 336, 478 366 C 492 344, 498 306, 500 266 Z" fill="#F2B84B" opacity="0.9"/>
+    <path d="M500 264 C 514 300, 528 324, 546 338 C 544 310, 528 282, 506 262 Z" fill="#E8D5B5"/>
+  </g>
+  <!-- feather ribs -->
+  <g stroke="#F7EEDD" stroke-width="3" stroke-linecap="round" opacity="0.8">
+    <path d="M496 268 C 478 306, 470 340, 472 368" fill="none"/>
+    <path d="M500 268 C 512 308, 526 340, 542 364" fill="none"/>
+  </g>
+  <!-- sparkles -->
+  <g stroke="#F2B84B" stroke-width="5" stroke-linecap="round">
+    <line x1="360" y1="120" x2="360" y2="144"/>
+    <line x1="348" y1="132" x2="372" y2="132"/>
+    <line x1="560" y1="180" x2="560" y2="200"/>
+    <line x1="550" y1="190" x2="570" y2="190"/>
+    <line x1="430" y1="330" x2="430" y2="348"/>
+    <line x1="421" y1="339" x2="439" y2="339"/>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <ellipse cx="320" cy="408" rx="190" ry="22" fill="#33261D" opacity="0.07"/>
+  <!-- fray left -->
+  <g stroke="#8A6A4F" stroke-width="7" stroke-linecap="round">
+    <line x1="118" y1="262" x2="82" y2="238"/>
+    <line x1="116" y1="278" x2="74" y2="272"/>
+    <line x1="120" y1="294" x2="86" y2="310"/>
+  </g>
+  <!-- fray right -->
+  <g stroke="#8A6A4F" stroke-width="7" stroke-linecap="round">
+    <line x1="522" y1="262" x2="558" y2="238"/>
+    <line x1="524" y1="278" x2="566" y2="272"/>
+    <line x1="520" y1="294" x2="554" y2="310"/>
+  </g>
+  <!-- braided middle -->
+  <g>
+    <rect x="196" y="240" width="52" height="96" rx="26" fill="#E8D5B5" transform="rotate(18 222 288)"/>
+    <rect x="238" y="240" width="52" height="96" rx="26" fill="#C2553A" transform="rotate(-18 264 288)"/>
+    <rect x="280" y="240" width="52" height="96" rx="26" fill="#E8D5B5" transform="rotate(18 306 288)"/>
+    <rect x="322" y="240" width="52" height="96" rx="26" fill="#C2553A" transform="rotate(-18 348 288)"/>
+    <rect x="364" y="240" width="52" height="96" rx="26" fill="#E8D5B5" transform="rotate(18 390 288)"/>
+    <rect x="406" y="240" width="52" height="96" rx="26" fill="#C2553A" transform="rotate(-18 432 288)"/>
+  </g>
+  <!-- left knot -->
+  <g>
+    <circle cx="152" cy="258" r="40" fill="#A84630"/>
+    <circle cx="128" cy="292" r="38" fill="#C2553A"/>
+    <circle cx="168" cy="302" r="36" fill="#D97B54"/>
+  </g>
+  <!-- right knot -->
+  <g>
+    <circle cx="488" cy="258" r="40" fill="#A84630"/>
+    <circle cx="512" cy="292" r="38" fill="#C2553A"/>
+    <circle cx="472" cy="302" r="36" fill="#D97B54"/>
+  </g>
+</svg>

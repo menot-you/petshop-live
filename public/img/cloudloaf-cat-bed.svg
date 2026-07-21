@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <ellipse cx="320" cy="420" rx="220" ry="24" fill="#33261D" opacity="0.07"/>
+  <!-- bed ring -->
+  <ellipse cx="320" cy="330" rx="215" ry="88" fill="#DCC49A"/>
+  <ellipse cx="320" cy="316" rx="215" ry="82" fill="#E8D5B5"/>
+  <!-- cushion -->
+  <ellipse cx="320" cy="322" rx="150" ry="54" fill="#F7EEDD"/>
+  <!-- sleeping cat -->
+  <ellipse cx="308" cy="308" rx="98" ry="46" fill="#6B4F3A"/>
+  <circle cx="392" cy="292" r="40" fill="#6B4F3A"/>
+  <path d="M368 262 L376 236 L392 258 Z" fill="#6B4F3A"/>
+  <path d="M404 258 L418 236 L424 262 Z" fill="#6B4F3A"/>
+  <path d="M372 236 L378 254 L388 244 Z" fill="#C2553A" opacity="0.55"/>
+  <path d="M414 240 L408 256 L420 258 Z" fill="#C2553A" opacity="0.55"/>
+  <!-- closed eyes + nose -->
+  <path d="M376 296 q8 7 16 0" stroke="#F7EEDD" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M402 296 q8 7 16 0" stroke="#F7EEDD" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="397" cy="310" r="4.5" fill="#C2553A"/>
+  <!-- tail curled over -->
+  <path d="M218 314 q-36 -8 -30 -40 q6 -28 44 -24" stroke="#5A4130" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- zzz -->
+  <g fill="#B98A5F" font-family="system-ui, sans-serif" font-weight="800">
+    <text x="452" y="204" font-size="42">z</text>
+    <text x="486" y="172" font-size="30">z</text>
+    <text x="510" y="148" font-size="21">z</text>
+  </g>
+</svg>

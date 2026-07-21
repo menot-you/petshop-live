@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <ellipse cx="320" cy="412" rx="220" ry="24" fill="#33261D" opacity="0.07"/>
+  <!-- cork dome -->
+  <path d="M140 400 A 180 180 0 0 1 500 400 Z" fill="#B98A5F"/>
+  <!-- cork grain arcs -->
+  <g fill="none" stroke="#A0764F" stroke-width="7" opacity="0.55" stroke-linecap="round">
+    <path d="M180 400 A 140 140 0 0 1 460 400"/>
+    <path d="M222 400 A 98 98 0 0 1 418 400"/>
+  </g>
+  <g fill="#8A6A4F" opacity="0.5">
+    <ellipse cx="204" cy="330" rx="9" ry="5" transform="rotate(-30 204 330)"/>
+    <ellipse cx="452" cy="318" rx="9" ry="5" transform="rotate(28 452 318)"/>
+    <ellipse cx="320" cy="242" rx="10" ry="5"/>
+  </g>
+  <!-- entrance -->
+  <path d="M244 400 A 76 84 0 0 1 396 400 Z" fill="#4A3728"/>
+  <!-- peeking hamster -->
+  <circle cx="320" cy="386" r="48" fill="#F2C98A"/>
+  <circle cx="286" cy="348" r="15" fill="#F2C98A"/>
+  <circle cx="354" cy="348" r="15" fill="#F2C98A"/>
+  <circle cx="286" cy="348" r="8" fill="#D9A441"/>
+  <circle cx="354" cy="348" r="8" fill="#D9A441"/>
+  <circle cx="303" cy="380" r="6.5" fill="#33261D"/>
+  <circle cx="337" cy="380" r="6.5" fill="#33261D"/>
+  <path d="M314 396 L326 396 L320 404 Z" fill="#C2553A"/>
+  <path d="M320 404 v8" stroke="#8A6A4F" stroke-width="3" stroke-linecap="round"/>
+  <!-- paws on the rim -->
+  <ellipse cx="292" cy="424" rx="13" ry="8" fill="#F2C98A"/>
+  <ellipse cx="348" cy="424" rx="13" ry="8" fill="#F2C98A"/>
+  <!-- grass tufts -->
+  <g fill="#3F7A64">
+    <path d="M150 402 q4 -26 12 -34 q2 18 -2 34 Z"/>
+    <path d="M164 402 q8 -20 18 -24 q-2 16 -8 24 Z"/>
+    <path d="M488 402 q-4 -26 -12 -34 q-2 18 2 34 Z"/>
+    <path d="M474 402 q-8 -20 -18 -24 q2 16 8 24 Z"/>
+  </g>
+</svg>

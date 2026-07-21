@@ -1,48 +1,58 @@
-# petshop-live — Bramble & Paw
+# petshop-live
 
-A demo pet-shop storefront with an invented brand identity. Pure static site: hand-written
-HTML/CSS/vanilla JS, no framework, no build step, no backend, no database.
+A demo pet-shop storefront: a static English store served by one tiny Express server,
+driven entirely by a single `catalog.json` on disk. Built as an interview demo piece —
+intentionally small, and honest about what it is.
 
-**Bramble & Paw is fictional.** The catalog is six invented physical products in a flat
-`catalog.json`; the buy button opens a prefilled email to the shop's (fake) address — there
-are no payments, no cart, no accounts, and no admin.
+- **Six invented physical products** with generated SVG product art
+- **Buy = contact** — every buy button opens a prefilled order email (`mailto`); no payments, no cart, no accounts, no admin
+- **One source of truth** — edit `catalog.json`, refresh the page, the store changes; no restart, no build step
+- **No database**, no frontend framework, no bundler
 
-## What's here
-
-| File | Role |
-| --- | --- |
-| `index.html` | Single page: app shell, header, footer |
-| `styles.css` | Brand styling (warm palette, responsive grid) |
-| `app.js` | Renders catalog grid + product detail from `catalog.json`, hash routing (`#/` and `#/p/<id>`), mailto buy action |
-| `catalog.json` | Store identity + the six products (names, prices, blurbs, images) |
-| `img/*.svg` | Hand-drawn flat product illustrations |
-| `server.mjs` | ~90-line hardened static server (allowlisted types, no dotfiles, no traversal, no listing) |
-| `catalog.test.mjs` | Catalog contract tests (`node --test`) |
-| `deploy/petshop-live.service` | systemd user unit that serves the site tailnet-only |
-
-## Run locally
+## Run
 
 ```sh
-node server.mjs                 # http://127.0.0.1:4174/
-node --test                     # catalog contract tests
+npm install
+npm start        # → http://localhost:4174
 ```
 
-No dependencies — any Node ≥ 18 works. Or skip the server entirely and use any static file
-server pointed at this directory.
+Environment: `PORT` (default `4174`), `HOST` (default `0.0.0.0`), `CATALOG_PATH`
+(default `./catalog.json`).
 
-## Deployment (as run on the tailnet)
-
-The site is served by `server.mjs` bound **only** to the host's Tailscale IP, so it is
-reachable inside the tailnet and invisible to the LAN and the public internet:
+## Test
 
 ```sh
-cp deploy/petshop-live.service ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable --now petshop-live.service
+npm test
 ```
 
-## Editing the catalog
+Covers the catalog schema (exactly six products, unique slug ids, prices, images exist
+on disk), the HTTP surface (storefront, API, product pages, images, 404 on unknown ids),
+and the core guarantee: editing the catalog file is visible on the next request without
+a restart.
 
-Edit `catalog.json` and refresh — the server sends `cache-control: no-store`, so changes land
-instantly. The buy-email target is `store.contact`. Product `id`s become URLs (`#/p/<id>`),
-so keep them lowercase-kebab. Run `node --test` after editing to keep the contract honest.
+## Layout
+
+```
+server.js             Express server: static files + fresh-read catalog API
+catalog.json          THE file — store identity + six products
+public/index.html     storefront (hero, grid, about, contact)
+public/product.html   product detail shell (rendered client-side)
+public/styles.css     warm pet-shop look: cream, clay, pine, sun
+public/app.js         renders the grid from /api/catalog
+public/product.js     renders one product; buy = prefilled order email
+public/img/*.svg      generated product art, one per product + logo
+test/                 node --test suites (catalog + server)
+deploy/               systemd user unit for the tailnet-only demo posture
+```
+
+## Serving posture (demo)
+
+On the demo box this runs as a systemd user service (`deploy/petshop-live.service`)
+bound to the Tailscale IP only — reachable from the tailnet, invisible on LAN and the
+public internet. Making it public later is a hosting change, not a rebuild.
+
+## Honest limits
+
+Demo catalog: the products, prices, address, and email domain are invented. "Buy" is a
+contact action by design — there are no payment rails, and there is no order state
+anywhere except your mail client.

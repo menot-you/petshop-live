@@ -1,64 +1,80 @@
 {
   "store": {
-    "name": "Bramble & Paw",
-    "tagline": "Neighborhood goods for well-loved animals",
-    "contact": "orders@brambleandpaw.example",
-    "note": "Bramble & Paw is a fictional shop. This is a demo storefront — the buy button opens your email app and no real order is placed."
+    "name": "petshop-live",
+    "tagline": "good gear for good pets",
+    "contact": "orders@petshop.live",
+    "address": "Havenstraat 12, Amsterdam",
+    "hours": "tue–sat 9:00–18:00"
   },
   "products": [
     {
-      "id": "meadow-rope-leash",
-      "name": "Meadow Rope Leash",
-      "price": 24,
-      "species": "dogs",
-      "tagline": "Six feet of hand-braided cotton with a solid brass clasp.",
-      "description": "Braided from soft garden-twine cotton that goes easy on your hands and holds up to a determined puller. The swivel clasp is solid brass, so it won't seize up after a rainy season of walks. Machine washable — hang it by the door and it dries by morning.",
-      "image": "img/meadow-rope-leash.svg"
-    },
-    {
-      "id": "orchard-chew-bone",
-      "name": "Orchard Chew Bone",
+      "id": "ember-rope-tug",
+      "name": "Ember Rope Tug",
+      "category": "dogs",
       "price": 12.5,
-      "species": "dogs",
-      "tagline": "Natural rubber, faintly apple-scented, outlasts the enthusiasm.",
-      "description": "A dense natural-rubber bone with a light apple scent baked in — enough to keep interest, not enough to perfume the living room. Softer than antler, kinder to teeth, and it bounces unpredictably, which most dogs consider a feature.",
-      "image": "img/orchard-chew-bone.svg"
+      "currency": "EUR",
+      "blurb": "braided cotton tug toy that outlasts the most determined jaws.",
+      "description": "A two-knot tug of tightly braided cotton, sized for medium jaws. Machine washable, dye-free, and rated for daily fetch-and-wrestle duty. If your dog shreds it inside a year, we replace it — that has happened twice, ever.",
+      "image": "/img/ember-rope-tug.svg",
+      "badge": "bestseller",
+      "inStock": true
     },
     {
-      "id": "cedar-loft-cat-tree",
-      "name": "Cedar Loft Cat Tree",
-      "price": 89,
-      "species": "cats",
-      "tagline": "Three carpeted tiers, two sisal posts, one smug cat.",
-      "description": "A steady three-tier tower with real cedar uprights and full-wrap sisal scratching posts. The top perch sits at windowsill height on purpose. Wide base, no wobble, and the carpet pads lift off for a proper vacuuming.",
-      "image": "img/cedar-loft-cat-tree.svg"
+      "id": "cloudloaf-cat-bed",
+      "name": "Cloudloaf Cat Bed",
+      "category": "cats",
+      "price": 39,
+      "currency": "EUR",
+      "blurb": "a memory-foam donut your cat will claim before you finish unboxing.",
+      "description": "Sixty centimetres of slow-rebound foam with a raised rim for chin-resting. The cover zips off and survives the washing machine; the anti-slip base survives midnight zoomies. Available in oat — cats have opinions, we kept it simple.",
+      "image": "/img/cloudloaf-cat-bed.svg",
+      "badge": "staff pick",
+      "inStock": true
     },
     {
-      "id": "clearbrook-aquarium-kit",
-      "name": "Clearbrook Aquarium Kit",
-      "price": 64,
-      "species": "fish",
-      "tagline": "A five-gallon starter tank with quiet filter and warm LED.",
-      "description": "Everything a first tank needs in one box: five-gallon low-iron glass, a genuinely quiet corner filter, a warm-white LED hood, and a starter guide that tells you the truth about cycling. Add water, patience, and one small fish with a big personality.",
-      "image": "img/clearbrook-aquarium-kit.svg"
+      "id": "peckys-seed-sticks",
+      "name": "Pecky's Seed Sticks",
+      "category": "birds",
+      "price": 6.9,
+      "currency": "EUR",
+      "blurb": "honey-baked millet sticks for parakeets — three per pack.",
+      "description": "Millet, canary seed, and a thin honey glaze, baked onto a natural wood core. Clips onto any cage bar. No artificial colours, because your bird genuinely does not care what colour breakfast is.",
+      "image": "/img/peckys-seed-sticks.svg",
+      "inStock": true
     },
     {
-      "id": "songbird-villa-cage",
-      "name": "Songbird Villa Cage",
-      "price": 58,
-      "species": "birds",
-      "tagline": "A powder-coated dome villa with two hardwood perches.",
-      "description": "A generous dome-top cage in powder-coated steel with narrow bar spacing safe for finches and canaries. Two hardwood perches, two feed cups, and a slide-out tray that makes morning cleanup a thirty-second job. Room to stretch, room to sing.",
-      "image": "img/songbird-villa-cage.svg"
+      "id": "trailblazer-harness",
+      "name": "Trailblazer No-Pull Harness",
+      "category": "dogs",
+      "price": 24.9,
+      "currency": "EUR",
+      "blurb": "a no-pull harness with reflective seams for early-morning walks.",
+      "description": "Front-clip design that steers enthusiasm instead of fighting it. Padded chest plate, four adjustment points, and 360° reflective stitching. Fits medium builds 55–75 cm around the chest; other sizes on request.",
+      "image": "/img/trailblazer-harness.svg",
+      "badge": "new",
+      "inStock": true
     },
     {
-      "id": "cloudloaf-dog-bed",
-      "name": "Cloudloaf Dog Bed",
-      "price": 46,
-      "species": "dogs",
-      "tagline": "Orthopedic foam loaf with a bolster rim and washable cover.",
-      "description": "A medium orthopedic loaf that keeps its shape instead of flattening into a pancake by autumn. The bolster rim is exactly chin height, and the cover unzips and survives the washing machine. Comes in oat — matches everything, hides most fur.",
-      "image": "img/cloudloaf-dog-bed.svg"
+      "id": "whisker-wand",
+      "name": "Whisker Wand",
+      "category": "cats",
+      "price": 9.5,
+      "currency": "EUR",
+      "blurb": "a feather teaser wand engineered for maximum pounce.",
+      "description": "Ninety centimetres of flexible fibreglass with a replaceable natural-feather lure on a braided cord. Five minutes a day keeps the 3 a.m. sprints (mostly) at bay. Refill lures sold in store.",
+      "image": "/img/whisker-wand.svg",
+      "inStock": true
+    },
+    {
+      "id": "burrow-buddy-hideout",
+      "name": "Burrow Buddy Hideout",
+      "category": "small pets",
+      "price": 17.8,
+      "currency": "EUR",
+      "blurb": "a natural cork hideout for hamsters and other small landlords.",
+      "description": "A hollow cork arch, sanded smooth and untreated — safe to chew, cool in summer, warm in winter. Roomy enough for a hamster, a pair of mice, or one dramatic gerbil. Every piece has its own grain; yours will be one of a kind.",
+      "image": "/img/burrow-buddy-hideout.svg",
+      "inStock": true
     }
   ]
 }
