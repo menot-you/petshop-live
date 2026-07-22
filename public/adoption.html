@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>adoption — petshop-live</title>
+  <meta name="description" content="Adopt through petshop-live: meet example friends like Poppy, Miso and Clover, then send a short application by email — no forms, no account.">
+  <meta name="theme-color" content="#FBF5EC">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <style>
+    /* Self-contained on purpose: like the FAQ and testimonials, this page carries its own copy of the store palette. */
+    :root {
+      --cream: #FBF5EC; --card: #FFFFFF; --ink: #33261D; --ink-soft: #6B5A4E;
+      --clay: #C2553A; --clay-deep: #A84630; --pine: #3F7A64; --pine-soft: #E4EFE9;
+      --sun: #F2B84B; --sand: #F3E7D3; --line: #E8DCC9;
+      --radius: 18px; --shadow: 0 10px 30px rgba(51, 38, 29, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px; line-height: 1.55;
+    }
+    a { color: var(--pine); }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; border-radius: 6px; }
+    .site-head {
+      position: sticky; top: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px clamp(20px, 5vw, 56px);
+      background: rgba(251, 245, 236, 0.9); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .brand-name .dot { color: var(--clay); }
+    .site-nav { display: flex; flex-wrap: wrap; gap: clamp(14px, 3vw, 28px); }
+    .site-nav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+    .site-nav a:hover { color: var(--clay); }
+    .site-nav a[aria-current] { color: var(--ink); }
+    main { max-width: 720px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 56px) clamp(24px, 4vw, 56px); }
+    .kicker { color: var(--clay); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; margin: 0 0 10px; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 0.3em; }
+    .lead { color: var(--ink-soft); max-width: 52ch; margin: 0 0 34px; }
+    .pet-card {
+      display: flex; align-items: flex-start; gap: 18px;
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px 26px; margin: 0 0 18px;
+    }
+    .pet-face {
+      flex: none; width: 64px; height: 64px; border-radius: 50%;
+      background: var(--sand); display: grid; place-items: center; font-size: 2rem;
+    }
+    .species {
+      display: inline-block; background: var(--pine-soft); color: var(--pine);
+      font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 10px; border-radius: 999px; margin-bottom: 8px;
+    }
+    .pet-card h2 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 6px; }
+    .pet-card h2 .age { color: var(--ink-soft); font-weight: 600; font-size: 1rem; }
+    .pet-card p { margin: 0 0 10px; color: var(--ink-soft); }
+    .apply { font-weight: 700; text-decoration: none; }
+    .apply:hover { color: var(--clay); }
+    .cta-block {
+      text-align: center; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 30px 28px 26px; margin-top: 30px;
+    }
+    .cta-block h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 8px; }
+    .cta-block > p { color: var(--ink-soft); max-width: 46ch; margin: 0 auto 18px; }
+    .cta {
+      display: inline-block; background: var(--clay); color: #FFFFFF; font-weight: 800;
+      text-decoration: none; padding: 13px 26px; border-radius: 999px;
+    }
+    .cta:hover { background: var(--clay-deep); }
+    .note { color: var(--ink-soft); font-size: 0.92rem; margin: 14px 0 0; }
+    .site-foot { border-top: 1px solid var(--line); margin-top: clamp(28px, 5vw, 56px); padding: 34px clamp(20px, 5vw, 56px) 44px; text-align: center; color: var(--ink-soft); }
+    .foot-brand { font-weight: 800; color: var(--ink); font-size: 1.1rem; margin-bottom: 8px; }
+    .site-foot p { margin: 4px 0; }
+    @media (max-width: 640px) { .site-nav { gap: 14px; font-size: 0.95rem; } body { font-size: 16px; } .pet-card { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand-name" href="/">petshop<span class="dot">·</span>live</a>
+    <nav class="site-nav">
+      <a href="/#shop">shop</a>
+      <a href="/#about">about</a>
+      <a href="/faq.html">faq</a>
+      <a href="/testimonials.html">testimonials</a>
+      <a href="/adoption.html" aria-current="page">adoption</a>
+      <a href="/giftcards.html">gift cards</a>
+      <a href="/loyalty.html">loyalty</a>
+      <a href="mailto:orders@petshop.live">contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="kicker">adoption</p>
+    <h1>take a friend home.</h1>
+    <p class="lead">every so often a pet comes through the shop looking for their person. adoption is simple: read who's waiting, send us a short application by email, and we'll plan a meet at the shop. the three below are example profiles — email us to hear who's actually here this week.</p>
+
+    <article class="pet-card">
+      <div class="pet-face" aria-hidden="true">🐶</div>
+      <div>
+        <span class="species">dog · example</span>
+        <h2>poppy <span class="age">· 2 years</span></h2>
+        <p>walks like she's late for something important, naps like it's her career; steady with kids and other dogs.</p>
+        <a class="apply" href="mailto:orders@petshop.live?subject=Adoption%20application%20%E2%80%94%20Poppy">apply to adopt poppy →</a>
+      </div>
+    </article>
+
+    <article class="pet-card">
+      <div class="pet-face" aria-hidden="true">🐱</div>
+      <div>
+        <span class="species">cat · example</span>
+        <h2>miso <span class="age">· 4 years</span></h2>
+        <p>a dignified sunbeam auditor — slow to hand out approval, impossible to un-charm once you've earned it.</p>
+        <a class="apply" href="mailto:orders@petshop.live?subject=Adoption%20application%20%E2%80%94%20Miso">apply to adopt miso →</a>
+      </div>
+    </article>
+
+    <article class="pet-card">
+      <div class="pet-face" aria-hidden="true">🐰</div>
+      <div>
+        <span class="species">rabbit · example</span>
+        <h2>clover <span class="age">· 1 year</span></h2>
+        <p>binkies before breakfast, full flop by noon; litter-trained and unreasonably serious about cilantro.</p>
+        <a class="apply" href="mailto:orders@petshop.live?subject=Adoption%20application%20%E2%80%94%20Clover">apply to adopt clover →</a>
+      </div>
+    </article>
+
+    <section class="cta-block">
+      <h2>ready to apply?</h2>
+      <p>one short email is the whole application: tell us a little about your home, your days, and who the pet would share them with.</p>
+      <a class="cta" href="mailto:orders@petshop.live?subject=Adoption%20application">apply to adopt</a>
+      <p class="note">applications land at orders@petshop.live — no forms, no account, a reply within two days.</p>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">petshop·live</div>
+    <p>orders &amp; questions: <a href="mailto:orders@petshop.live">orders@petshop.live</a></p>
+    <p>havenstraat 12, amsterdam · tue–sat 9:00–18:00</p>
+  </footer>
+</body>
+</html>

@@ -163,3 +163,30 @@ test('promo banner page is standalone: offer, end date, one CTA back to the stor
   assert.doesNotMatch(html, /<script/, 'promo stays JS-free');
   assert.doesNotMatch(html, /<img/, 'promo stays image-free');
 });
+
+test('adoption page is served with three example pets funneling to the contact mailto', async (t) => {
+  const srv = await listen(createApp());
+  t.after(() => srv.close());
+
+  const res = await fetch(`${base(srv)}/adoption.html`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.equal((html.match(/class="pet-card"/g) ?? []).length, 3, 'exactly three pet cards');
+  for (const pet of ['poppy', 'miso', 'clover']) {
+    assert.match(html, new RegExp(pet), `introduces ${pet}`);
+  }
+  assert.equal(
+    (html.match(/mailto:orders@petshop\.live\?subject=Adoption%20application/g) ?? []).length,
+    4,
+    'three per-pet applies plus the main CTA all open the prefilled contact mailto'
+  );
+  assert.match(html, /example/, 'pets are clearly marked as example profiles');
+  assert.doesNotMatch(html, /<script/, 'adoption stays JS-free');
+  assert.doesNotMatch(html, /<img/, 'adoption stays image-free');
+  assert.doesNotMatch(html, /<form/, 'adoption carries no forms');
+
+  for (const page of ['/', '/faq.html', '/testimonials.html', '/giftcards.html', '/loyalty.html']) {
+    const nav = await (await fetch(`${base(srv)}${page}`)).text();
+    assert.match(nav, /href="\/adoption\.html"/, `${page} nav links to the adoption page`);
+  }
+});
