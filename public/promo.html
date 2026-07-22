@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>20% off all pet food — petshop-live</title>
+  <meta name="description" content="petshop-live promo: 20% off all pet food, this week only — ends Sunday, July 26. In store and on pickup orders, no code needed.">
+  <meta name="theme-color" content="#2E5C49">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <style>
+    /* Self-contained on purpose: like the FAQ, testimonials, gift cards and loyalty pages, this page carries its own copy of the store palette. */
+    :root {
+      --cream: #FBF5EC; --card: #FFFFFF; --ink: #33261D; --ink-soft: #6B5A4E;
+      --clay: #C2553A; --pine: #3F7A64; --pine-deep: #2E5C49; --pine-soft: #E4EFE9; --sun: #F2B84B;
+      --line: #E8DCC9; --radius: 18px; --shadow: 0 10px 30px rgba(51, 38, 29, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px; line-height: 1.55;
+    }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; border-radius: 6px; }
+    .banner {
+      background: linear-gradient(160deg, #38705B 0%, var(--pine-deep) 75%);
+      color: var(--cream); text-align: center;
+      padding: clamp(56px, 12vw, 118px) clamp(20px, 5vw, 56px) clamp(50px, 10vw, 104px);
+    }
+    .banner-inner { max-width: 820px; margin: 0 auto; }
+    .kicker {
+      margin: 0 0 18px; color: rgba(251, 245, 236, 0.92);
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.82rem;
+    }
+    .kicker b { color: var(--sun); font-weight: 700; }
+    h1 {
+      margin: 0 0 0.25em; font-size: clamp(2.6rem, 8vw, 4.6rem);
+      font-weight: 800; line-height: 1.05; letter-spacing: -0.02em;
+    }
+    .sub {
+      margin: 0 auto 26px; max-width: 46ch;
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: rgba(251, 245, 236, 0.88);
+    }
+    .ends {
+      display: inline-block; margin: 0 0 32px; padding: 8px 18px; border-radius: 999px;
+      background: var(--sun); color: var(--ink); font-weight: 700; font-size: 0.95rem;
+    }
+    .cta-row { margin: 0; }
+    .cta {
+      display: inline-block; padding: 16px 36px; border-radius: 999px;
+      background: var(--cream); color: var(--ink); text-decoration: none;
+      font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    }
+    .cta:hover { background: var(--card); color: var(--clay); }
+    .terms { max-width: 680px; margin: 0 auto; padding: clamp(36px, 6vw, 60px) clamp(20px, 5vw, 56px); }
+    .terms-card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      border-top: 6px solid var(--sun); padding: 26px 28px;
+    }
+    h2 { margin: 0 0 10px; font-size: 1.15rem; letter-spacing: -0.01em; }
+    .terms ul { margin: 0; padding: 0 0 0 18px; color: var(--ink-soft); font-size: 0.95rem; display: grid; gap: 8px; }
+    .terms li::marker { color: var(--pine); }
+    .site-foot { border-top: 1px solid var(--line); padding: 30px clamp(20px, 5vw, 56px) 40px; text-align: center; color: var(--ink-soft); }
+    .foot-brand { font-weight: 800; color: var(--ink); font-size: 1.05rem; margin-bottom: 6px; }
+    .site-foot p { margin: 4px 0; font-size: 0.92rem; }
+    @media (max-width: 640px) { body { font-size: 16px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="banner" aria-label="this week's promotion">
+      <div class="banner-inner">
+        <p class="kicker">petshop·live — <b>this week only</b></p>
+        <h1>20% off all pet food.</h1>
+        <p class="sub">every bag, every tin, every brand on our shelves — stock up for the hungry ones while the week lasts.</p>
+        <p class="ends">offer ends sunday, july 26</p>
+        <p class="cta-row"><a class="cta" href="/">shop the sale →</a></p>
+      </div>
+    </section>
+
+    <section class="terms" aria-label="offer terms">
+      <div class="terms-card">
+        <h2>the fine print</h2>
+        <ul>
+          <li>20% comes off every pet food product — dry, wet, and treats included — at the till. no code, no minimum.</li>
+          <li>runs through closing time on sunday, july 26, 2026, in store and on pickup orders.</li>
+          <li>doesn't stack with other discounts, and everything that isn't food stays full price.</li>
+          <li>while stock lasts — and yes, the dramatic gerbil's seed mix counts.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">petshop·live</div>
+    <p>havenstraat 12, amsterdam · tue–sat 9:00–18:00</p>
+    <p>demo storefront — this promotion is a placeholder offer.</p>
+  </footer>
+</body>
+</html>

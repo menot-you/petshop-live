@@ -145,3 +145,21 @@ test('editing the catalog file is visible on the next request, no restart', asyn
   const after = await (await fetch(`${base(srv)}/api/catalog/ember-rope-tug`)).json();
   assert.equal(after.product.price, 99.99);
 });
+
+test('promo banner page is standalone: offer, end date, one CTA back to the store', async (t) => {
+  const srv = await listen(createApp());
+  t.after(() => srv.close());
+
+  const res = await fetch(`${base(srv)}/promo.html`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.match(html, /20% off all pet food/, 'headline carries the offer');
+  assert.match(html, /sunday, july 26/, 'end date is stated');
+  assert.match(html, /the fine print/, 'offer terms section present');
+  assert.equal((html.match(/<a\s/g) ?? []).length, 1, 'exactly one link on the page');
+  assert.match(html, /<a class="cta" href="\/">/, 'the one link is the CTA back to the store');
+  assert.doesNotMatch(html, /<nav/, 'promo carries no nav');
+  assert.doesNotMatch(html, /<form/, 'promo carries no forms');
+  assert.doesNotMatch(html, /<script/, 'promo stays JS-free');
+  assert.doesNotMatch(html, /<img/, 'promo stays image-free');
+});
