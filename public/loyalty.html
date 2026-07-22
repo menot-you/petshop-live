@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>loyalty card — petshop-live</title>
+  <meta name="description" content="petshop-live loyalty card: one stamp per visit, three tiers — Paw, Whisker and Pack Leader — with perks from free treat bags to priority grooming.">
+  <meta name="theme-color" content="#FBF5EC">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <style>
+    /* Self-contained on purpose: like the FAQ, testimonials and gift cards, this page carries its own copy of the store palette. */
+    :root {
+      --cream: #FBF5EC; --card: #FFFFFF; --ink: #33261D; --ink-soft: #6B5A4E;
+      --clay: #C2553A; --pine: #3F7A64; --pine-soft: #E4EFE9; --sun: #F2B84B;
+      --line: #E8DCC9; --radius: 18px; --shadow: 0 10px 30px rgba(51, 38, 29, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px; line-height: 1.55;
+    }
+    a { color: var(--pine); }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; border-radius: 6px; }
+    .site-head {
+      position: sticky; top: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px clamp(20px, 5vw, 56px);
+      background: rgba(251, 245, 236, 0.9); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .brand-name .dot { color: var(--clay); }
+    .site-nav { display: flex; flex-wrap: wrap; gap: clamp(14px, 3vw, 28px); }
+    .site-nav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+    .site-nav a:hover { color: var(--clay); }
+    .site-nav a[aria-current] { color: var(--ink); }
+    main { max-width: 780px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 56px) clamp(24px, 4vw, 56px); }
+    .kicker { color: var(--clay); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; margin: 0 0 10px; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 0.3em; }
+    .lead { color: var(--ink-soft); max-width: 56ch; margin: 0 0 34px; }
+    .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; align-items: stretch; }
+    .tier-card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px;
+      border-top: 6px solid transparent; background-clip: padding-box; position: relative; overflow: hidden;
+    }
+    .tier-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--band); }
+    .tier-paw { --band: linear-gradient(90deg, var(--sun), var(--clay)); }
+    .tier-whisker { --band: linear-gradient(90deg, var(--clay), var(--pine)); }
+    .tier-packleader { --band: linear-gradient(90deg, var(--pine), var(--sun)); }
+    .tier-featured { border: 2px solid var(--pine); border-top-color: transparent; box-shadow: 0 16px 38px rgba(63, 122, 100, 0.18); }
+    @media (min-width: 660px) { .tier-featured { transform: translateY(-10px); } }
+    .tier-label {
+      align-self: flex-start; background: var(--pine-soft); color: var(--pine);
+      font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .tier-featured .tier-label { background: var(--pine); color: var(--cream); }
+    .tier-card h2 { margin: 0; font-size: 1.3rem; letter-spacing: -0.01em; }
+    .stamps { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+    .stamps small { display: block; font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
+    .tier-card ul { margin: 0; padding: 0 0 0 18px; color: var(--ink-soft); font-size: 0.95rem; display: grid; gap: 6px; }
+    .tier-card li::marker { color: var(--pine); }
+    .how-to-join {
+      margin-top: 34px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px 24px;
+    }
+    .how-to-join h2 { margin: 0 0 8px; font-size: 1.15rem; }
+    .how-to-join p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+    .fine-print { color: var(--ink-soft); font-size: 0.9rem; margin: 26px 0 0; }
+    .site-foot { border-top: 1px solid var(--line); margin-top: clamp(28px, 5vw, 56px); padding: 34px clamp(20px, 5vw, 56px) 44px; text-align: center; color: var(--ink-soft); }
+    .foot-brand { font-weight: 800; color: var(--ink); font-size: 1.1rem; margin-bottom: 8px; }
+    .site-foot p { margin: 4px 0; }
+    @media (max-width: 640px) { .site-nav { gap: 14px; font-size: 0.95rem; } body { font-size: 16px; } }
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand-name" href="/">petshop<span class="dot">·</span>live</a>
+    <nav class="site-nav">
+      <a href="/#shop">shop</a>
+      <a href="/#about">about</a>
+      <a href="/faq.html">faq</a>
+      <a href="/testimonials.html">testimonials</a>
+      <a href="/giftcards.html">gift cards</a>
+      <a href="/loyalty.html" aria-current="page">loyalty</a>
+      <a href="mailto:orders@petshop.live">contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="kicker">loyalty card</p>
+    <h1>every visit counts.</h1>
+    <p class="lead">one paper card, one stamp per visit — any visit, any spend. stamps add up and never reset, and the card climbs through three tiers on its own. no app, no account, no small print you'd need glasses for.</p>
+
+    <div class="tiers">
+      <section class="tier-card tier-paw">
+        <span class="tier-label">day one</span>
+        <h2>Paw</h2>
+        <p class="stamps">0+ stamps<small>yours the moment you join</small></p>
+        <ul>
+          <li>a free treat bag at every 5th stamp</li>
+          <li>a birthday treat for your pet, on the house</li>
+          <li>first look at new toys before the shelf gets them</li>
+        </ul>
+      </section>
+
+      <section class="tier-card tier-whisker tier-featured">
+        <span class="tier-label">where the regulars live</span>
+        <h2>Whisker</h2>
+        <p class="stamps">10+ stamps<small>most cards get here in a season</small></p>
+        <ul>
+          <li>everything in Paw</li>
+          <li>10% off grooming, every time</li>
+          <li>a free treat bag every month, no stamp needed</li>
+        </ul>
+      </section>
+
+      <section class="tier-card tier-packleader">
+        <span class="tier-label">the top shelf</span>
+        <h2>Pack Leader</h2>
+        <p class="stamps">25+ stamps<small>for the saturday fixtures</small></p>
+        <ul>
+          <li>everything in Whisker</li>
+          <li>priority booking for grooming and pickup slots</li>
+          <li>15% off one full basket, four times a year</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="how-to-join">
+      <h2>how to join</h2>
+      <p>ask for a loyalty card at the counter — it takes the time of one stamp. we stamp it at every visit, tue–sat 9:00–18:00. lost cards get replaced at the tier you swear you were on; we're trusting like that. questions to <a href="mailto:orders@petshop.live">orders@petshop.live</a>.</p>
+    </section>
+
+    <p class="fine-print">tiers are per pet household, stamps never expire, and the card is proper card stock — it survives a pocket wash better than the receipts do.</p>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">petshop·live</div>
+    <p>orders &amp; questions: <a href="mailto:orders@petshop.live">orders@petshop.live</a></p>
+    <p>havenstraat 12, amsterdam · tue–sat 9:00–18:00</p>
+  </footer>
+</body>
+</html>

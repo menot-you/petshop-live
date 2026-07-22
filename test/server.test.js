@@ -104,6 +104,29 @@ test('gift cards page is served with three tiers, no scripts, no images', async 
   }
 });
 
+test('loyalty page is served with three tiers, no scripts, no images', async (t) => {
+  const srv = await listen(createApp());
+  t.after(() => srv.close());
+
+  const res = await fetch(`${base(srv)}/loyalty.html`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.equal((html.match(/class="tier-card/g) ?? []).length, 3, 'exactly three tier cards');
+  assert.equal((html.match(/tier-featured/g) ?? []).length > 0, true, 'the middle tier is featured');
+  for (const [name, stamps] of [['Paw', '0\\+ stamps'], ['Whisker', '10\\+ stamps'], ['Pack Leader', '25\\+ stamps']]) {
+    assert.match(html, new RegExp(name), `offers the ${name} tier`);
+    assert.match(html, new RegExp(stamps), `${name} shows its stamp threshold`);
+  }
+  assert.doesNotMatch(html, /<script/, 'loyalty stays JS-free');
+  assert.doesNotMatch(html, /<img/, 'loyalty stays image-free');
+  assert.match(html, /how to join/, 'explains joining in-store');
+
+  for (const page of ['/', '/faq.html', '/testimonials.html', '/giftcards.html']) {
+    const nav = await (await fetch(`${base(srv)}${page}`)).text();
+    assert.match(nav, /href="\/loyalty\.html"/, `${page} nav links to the loyalty page`);
+  }
+});
+
 test('editing the catalog file is visible on the next request, no restart', async (t) => {
   const dir = mkdtempSync(path.join(tmpdir(), 'petshop-'));
   const tmpCatalog = path.join(dir, 'catalog.json');
