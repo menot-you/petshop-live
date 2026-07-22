@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>grooming — petshop-live</title>
+  <meta name="description" content="petshop-live grooming: Wash &amp; Brush, Full Groom and Nail &amp; Tidy — book by email, drop off at the counter, pick up a cloud. Tue–sat, inside shop hours.">
+  <meta name="theme-color" content="#FBF5EC">
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <style>
+    /* Self-contained on purpose: like the FAQ, testimonials, gift cards and loyalty, this page carries its own copy of the store palette. */
+    :root {
+      --cream: #FBF5EC; --card: #FFFFFF; --ink: #33261D; --ink-soft: #6B5A4E;
+      --clay: #C2553A; --clay-deep: #A84630; --pine: #3F7A64; --pine-soft: #E4EFE9;
+      --sun: #F2B84B; --line: #E8DCC9; --radius: 18px; --shadow: 0 10px 30px rgba(51, 38, 29, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px; line-height: 1.55;
+    }
+    a { color: var(--pine); }
+    :focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; border-radius: 6px; }
+    .site-head {
+      position: sticky; top: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px clamp(20px, 5vw, 56px);
+      background: rgba(251, 245, 236, 0.9); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+    .brand-name .dot { color: var(--clay); }
+    .site-nav { display: flex; flex-wrap: wrap; gap: clamp(14px, 3vw, 28px); }
+    .site-nav a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+    .site-nav a:hover { color: var(--clay); }
+    .site-nav a[aria-current] { color: var(--ink); }
+    main { max-width: 780px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) clamp(20px, 5vw, 56px) clamp(24px, 4vw, 56px); }
+    .kicker { color: var(--clay); font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.82rem; margin: 0 0 10px; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 0.3em; }
+    .lead { color: var(--ink-soft); max-width: 56ch; margin: 0 0 34px; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; align-items: stretch; }
+    .service-card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px;
+      border-top: 6px solid transparent; background-clip: padding-box; position: relative; overflow: hidden;
+    }
+    .service-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--band); }
+    .service-wash { --band: linear-gradient(90deg, var(--sun), var(--clay)); }
+    .service-full { --band: linear-gradient(90deg, var(--clay), var(--pine)); }
+    .service-nails { --band: linear-gradient(90deg, var(--pine), var(--sun)); }
+    .service-featured { border: 2px solid var(--pine); border-top-color: transparent; box-shadow: 0 16px 38px rgba(63, 122, 100, 0.18); }
+    @media (min-width: 660px) { .service-featured { transform: translateY(-10px); } }
+    .service-label {
+      align-self: flex-start; background: var(--pine-soft); color: var(--pine);
+      font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .service-featured .service-label { background: var(--pine); color: var(--cream); }
+    .service-card h2 { margin: 0; font-size: 1.3rem; letter-spacing: -0.01em; }
+    .price { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+    .price small { display: block; font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); letter-spacing: 0; }
+    .service-card p.what { margin: 0; color: var(--ink-soft); font-size: 0.95rem; flex-grow: 1; }
+    .book { font-weight: 700; text-decoration: none; }
+    .book:hover { color: var(--clay); }
+    .how-to-book {
+      margin-top: 34px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 22px 24px;
+    }
+    .how-to-book h2 { margin: 0 0 8px; font-size: 1.15rem; }
+    .how-to-book p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+    .cta-block {
+      text-align: center; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 30px 28px 26px; margin-top: 30px;
+    }
+    .cta-block h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.01em; margin: 0 0 8px; }
+    .cta-block > p { color: var(--ink-soft); max-width: 46ch; margin: 0 auto 18px; }
+    .cta {
+      display: inline-block; background: var(--clay); color: #FFFFFF; font-weight: 800;
+      text-decoration: none; padding: 13px 26px; border-radius: 999px;
+    }
+    .cta:hover { background: var(--clay-deep); }
+    .note { color: var(--ink-soft); font-size: 0.92rem; margin: 14px 0 0; }
+    .fine-print { color: var(--ink-soft); font-size: 0.9rem; margin: 26px 0 0; }
+    .site-foot { border-top: 1px solid var(--line); margin-top: clamp(28px, 5vw, 56px); padding: 34px clamp(20px, 5vw, 56px) 44px; text-align: center; color: var(--ink-soft); }
+    .foot-brand { font-weight: 800; color: var(--ink); font-size: 1.1rem; margin-bottom: 8px; }
+    .site-foot p { margin: 4px 0; }
+    @media (max-width: 640px) { .site-nav { gap: 14px; font-size: 0.95rem; } body { font-size: 16px; } }
+  </style>
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand-name" href="/">petshop<span class="dot">·</span>live</a>
+    <nav class="site-nav">
+      <a href="/#shop">shop</a>
+      <a href="/#about">about</a>
+      <a href="/faq.html">faq</a>
+      <a href="/testimonials.html">testimonials</a>
+      <a href="/adoption.html">adoption</a>
+      <a href="/giftcards.html">gift cards</a>
+      <a href="/loyalty.html">loyalty</a>
+      <a href="/grooming.html" aria-current="page">grooming</a>
+      <a href="mailto:orders@petshop.live">contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="kicker">grooming</p>
+    <h1>good hair days, for pets.</h1>
+    <p class="lead">wash, clip, tidy — done gently, by the same people your pet already knows from the treat shelf. book by email, drop off at the counter, pick up a cloud.</p>
+
+    <div class="services">
+      <section class="service-card service-wash">
+        <span class="service-label">the refresh</span>
+        <h2>Wash &amp; Brush</h2>
+        <p class="price">€25<small>about 45 minutes</small></p>
+        <p class="what">bath with gentle shampoo, blow-dry, full brush-out, ear and eye wipe. the classic freshen-up.</p>
+        <a class="book" href="mailto:orders@petshop.live?subject=Grooming%20appointment%20%E2%80%94%20Wash%20%26%20Brush">book wash &amp; brush →</a>
+      </section>
+
+      <section class="service-card service-full service-featured">
+        <span class="service-label">the works</span>
+        <h2>Full Groom</h2>
+        <p class="price">€55<small>about 90 minutes</small></p>
+        <p class="what">everything in Wash &amp; Brush, plus a clip and style suited to the breed, nail trim and a soft scent finish.</p>
+        <a class="book" href="mailto:orders@petshop.live?subject=Grooming%20appointment%20%E2%80%94%20Full%20Groom">book full groom →</a>
+      </section>
+
+      <section class="service-card service-nails">
+        <span class="service-label">the quick fix</span>
+        <h2>Nail &amp; Tidy</h2>
+        <p class="price">€15<small>about 20 minutes</small></p>
+        <p class="what">nail trim, paw and face tidy, quick fluff — perfect for the stretch between full grooms.</p>
+        <a class="book" href="mailto:orders@petshop.live?subject=Grooming%20appointment%20%E2%80%94%20Nail%20%26%20Tidy">book nail &amp; tidy →</a>
+      </section>
+    </div>
+
+    <section class="how-to-book">
+      <h2>how booking works</h2>
+      <p>email us with your pet's name, breed or size, the service you're after and a preferred day — we confirm a slot within a day. grooming runs tue–sat 10:00–17:00, inside the shop's regular hours. nervous pets get the slow lane: extra time, a quiet corner, no extra charge.</p>
+    </section>
+
+    <section class="cta-block">
+      <h2>ready for the spa day?</h2>
+      <p>one short email is the whole booking: who's coming in, which service, and the day that suits you.</p>
+      <a class="cta" href="mailto:orders@petshop.live?subject=Grooming%20appointment">book a grooming</a>
+      <p class="note">bookings land at orders@petshop.live — no forms, no account, a reply within a day.</p>
+    </section>
+
+    <p class="fine-print">prices are the honest kind — what's quoted is what's paid. double coats and serious matting can add time; we'll say so before we start, and the wiggliest clients get water breaks.</p>
+  </main>
+
+  <footer class="site-foot">
+    <div class="foot-brand">petshop·live</div>
+    <p>orders &amp; questions: <a href="mailto:orders@petshop.live">orders@petshop.live</a></p>
+    <p>havenstraat 12, amsterdam · tue–sat 9:00–18:00</p>
+  </footer>
+</body>
+</html>

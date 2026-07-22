@@ -190,3 +190,35 @@ test('adoption page is served with three example pets funneling to the contact m
     assert.match(nav, /href="\/adoption\.html"/, `${page} nav links to the adoption page`);
   }
 });
+
+test('grooming page is served with three services funneling to the contact mailto', async (t) => {
+  const srv = await listen(createApp());
+  t.after(() => srv.close());
+
+  const res = await fetch(`${base(srv)}/grooming.html`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.equal((html.match(/class="service-card/g) ?? []).length, 3, 'exactly three service cards');
+  assert.equal((html.match(/service-featured/g) ?? []).length > 0, true, 'the middle service is featured');
+  for (const [name, price] of [['Wash &amp; Brush', '€25'], ['Full Groom', '€55'], ['Nail &amp; Tidy', '€15']]) {
+    assert.match(html, new RegExp(name), `offers ${name}`);
+    assert.match(html, new RegExp(price), `${name} shows ${price}`);
+  }
+  assert.equal(
+    (html.match(/mailto:orders@petshop\.live\?subject=Grooming%20appointment/g) ?? []).length,
+    4,
+    'three per-service bookings plus the main CTA all open the prefilled contact mailto'
+  );
+  assert.match(html, /<h1[\s>]/, 'a real h1 heads the page');
+  assert.match(html, /<h2[\s>]/, 'real h2 tags head the sections');
+  assert.doesNotMatch(html, /^#{1,3} /m, 'no literal markdown headers leak into the HTML');
+  assert.match(html, /tue–sat/, 'grooming hours sit inside the shop hours');
+  assert.doesNotMatch(html, /<script/, 'grooming stays JS-free');
+  assert.doesNotMatch(html, /<img/, 'grooming stays image-free');
+  assert.doesNotMatch(html, /<form/, 'grooming carries no forms');
+
+  for (const page of ['/', '/faq.html', '/testimonials.html', '/giftcards.html', '/loyalty.html', '/adoption.html']) {
+    const nav = await (await fetch(`${base(srv)}${page}`)).text();
+    assert.match(nav, /href="\/grooming\.html"/, `${page} nav links to the grooming page`);
+  }
+});
